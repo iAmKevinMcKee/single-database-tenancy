@@ -2,8 +2,11 @@
     "name": "iamkevinmckee/single-database-tenancy",
     "description": "A simple package to create multi-tenant applications with a single database.",
     "keywords": [
-        "iamkevinmckee",
-        "single-database-tenancy"
+        "single-database-tenancy",
+        "multi-tenant",
+        "multi-tenancy",
+        "laravel",
+        "laravel multi-tenant"
     ],
     "homepage": "https://github.com/iamkevinmckee/single-database-tenancy",
     "license": "MIT",
@@ -16,11 +19,11 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
+        "php": "^7.4",
+        "illuminate/support": "^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
+        "orchestra/testbench": "^5.0",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {

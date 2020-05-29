@@ -26,7 +26,7 @@ You will also need to add a `tenant_id` to your `users` table.
 php artisan make:migration add_tenant_id_to_users_table
 ```
 
-Next you will want to publish the stubs. This will ensure every subsequent model has a migration with a `tenant_id`.
+Next you will want to publish the stubs. This will ensure every subsequent model has a migration with a `tenant_id`. For this to work, you must create your models with the `-m` flag so a migration is also created with the model.
 
 ```bash
 php artisan single-db-tenancy:stubs

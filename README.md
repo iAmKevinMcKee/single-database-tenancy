@@ -1,12 +1,9 @@
-# Very short description of the package
+# Single Database Multi Tenancy for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/iamkevinmckee/single-database-tenancy.svg?style=flat-square)](https://packagist.org/packages/iamkevinmckee/single-database-tenancy)
-[![Build Status](https://img.shields.io/travis/iamkevinmckee/single-database-tenancy/master.svg?style=flat-square)](https://travis-ci.org/iamkevinmckee/single-database-tenancy)
-[![Quality Score](https://img.shields.io/scrutinizer/g/iamkevinmckee/single-database-tenancy.svg?style=flat-square)](https://scrutinizer-ci.com/g/iamkevinmckee/single-database-tenancy)
 [![Total Downloads](https://img.shields.io/packagist/dt/iamkevinmckee/single-database-tenancy.svg?style=flat-square)](https://packagist.org/packages/iamkevinmckee/single-database-tenancy)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
+This is a package to help you create a multi-tenant application in Laravel with a single database. It is best used at the beginning of a new project.
 ## Installation
 
 You can install the package via composer:
@@ -17,9 +14,27 @@ composer require iamkevinmckee/single-database-tenancy
 
 ## Usage
 
-``` php
-// Usage description here
+After installing the package, you will need to create a Tenant model.
+
+```bash
+php artisan make:model Tenant -m
 ```
+
+You will also need to add a `tenant_id` to your `users` table.
+
+```bash
+php artisan make:migration add_tenant_id_to_users_table
+```
+
+Next you will want to publish the stubs. This will ensure every subsequent model has a migration with a `tenant_id`.
+
+```bash
+php artisan single-db-tenancy:stubs
+```
+
+At this point, you just need to make sure each User has a tenant_id assigned to them when they register and all Eloquent operations will be scoped to the tenant.
+
+When inserting data into the database via Eloquent, the `tenant_id` will automatically be set to the `tenant_id` of the user submitting the data.
 
 ### Testing
 
@@ -33,7 +48,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please open an issue before submitting a PR to ensure the feature will be accepted.
 
 ### Security
 

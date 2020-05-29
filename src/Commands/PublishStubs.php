@@ -7,7 +7,7 @@ use Illuminate\Filesystem\Filesystem;
 
 class PublishStubs extends Command
 {
-    protected $signature = 'single-db-tenant:stubs';
+    protected $signature = 'single-db-tenancy:stubs';
 
     protected $description = 'Publish Single Database Multi-Tenant stubs';
 
